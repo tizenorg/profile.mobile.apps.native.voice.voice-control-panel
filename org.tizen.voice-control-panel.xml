@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://tizen.org/ns/packages" package="org.tizen.voice-control-panel" version="0.1" install-location="internal-only" api-version="3.0">
+        <label>Voice control panel</label>
+        <author email="ky85.kim@samsung.com" href="www.samsung.com">Kwangyoun Kim</author>
+        <description>Voice control panel Application</description>
+        <ui-application appid="org.tizen.voice-control-panel" exec="/usr/apps/org.tizen.voice-control-panel/bin/voice-control-panel" nodisplay="true" multiple="false" type="capp" taskmanage="false">
+            <label>Voice control panel</label>
+       </ui-application>
+        <privileges>
+            <privilege>http://tizen.org/privilege/recorder</privilege>
+            <privilege>http://tizen.org/privilege/appmanager.launch</privilege>
+        </privileges>
+</manifest>

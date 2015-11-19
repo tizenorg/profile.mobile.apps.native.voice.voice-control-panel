@@ -1,0 +1,15 @@
+<manifest>
+	<define>
+		<domain name="org.tizen.voice-control-panel" />
+	</define>
+	<request>
+		<domain name="org.tizen.voice-control-panel" />
+	</request>
+	<assign>
+		<filesystem path="/usr/share/packages/voice-control-panel.xml" label="_" />
+		<filesystem path="/usr/apps/org.tizen.voice-control-panel" label="org.tizen.voice-control-panel" />
+		<filesystem path="/usr/apps/org.tizen.voice-control-panel/res" label="org.tizen.voice-control-panel" />
+		<filesystem path="/usr/apps/org.tizen.voice-control-panel/bin/voice-control-panel" label="org.tizen.voice-control-panel" exec_label="org.tizen.voice-control-panel" />
+	</assign>
+
+</manifest>
