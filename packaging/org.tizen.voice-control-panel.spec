@@ -33,6 +33,8 @@ BuildRequires:  pkgconfig(capi-network-bluetooth)
 BuildRequires:  pkgconfig(vconf)
 BuildRequires:  pkgconfig(syspopup-caller)
 
+BuildRequires:  pkgconfig(libtzplatform-config)
+
 %description
 Voice control panel(manager) application
 
@@ -47,7 +49,10 @@ export CFLAGS="$CFLAGS -DTIZEN_DEBUG_ENABLE"
 export CXXFLAGS="$CXXFLAGS -DTIZEN_DEBUG_ENABLE"
 export FFLAGS="$FFLAGS -DTIZEN_DEBUG_ENABLE"
 
-cmake . -DCMAKE_INSTALL_PREFIX=/usr
+%define PREFIX	%{TZ_SYS_RO_APP}/%{name}
+%define MANIFESTDIR %{TZ_SYS_RO_PACKAGES}
+
+cmake . -DCMAKE_INSTALL_PREFIX=%{PREFIX} -DMANIFESTDIR=%{MANIFESTDIR}
 make %{?jobs:-j%jobs}
 
 %install
@@ -60,9 +65,9 @@ install LICENSE %{buildroot}/usr/share/license/%{name}
 %files
 %manifest org.tizen.voice-control-panel.manifest
 %defattr(-,root,root,-)
-/usr/apps/org.tizen.voice-control-panel/bin/*
-/usr/apps/org.tizen.voice-control-panel/res/edje/*
-/usr/apps/org.tizen.voice-control-panel/res/images/*
-/usr/apps/org.tizen.voice-control-panel/res/locale/*
-/usr/share/packages/org.tizen.voice-control-panel.xml
+%{PREFIX}/bin/*
+%{PREFIX}/res/edje/*
+%{PREFIX}/res/images/*
+%{PREFIX}/res/locale/*
+%{MANIFESTDIR}/org.tizen.voice-control-panel.xml
 /usr/share/license/%{name}

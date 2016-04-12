@@ -219,7 +219,7 @@ static Eina_Bool __start_cb(void *data)
 		LOGE("[ERROR] Fail to get current commands");
 	}
 
-	if (0 != vc_mgr_start(true, false)) {
+	if (0 != vc_mgr_start(false)) {
 		LOGE( "[ERROR] Fail to start");
 	}
 
@@ -290,7 +290,7 @@ static Eina_Bool __vc_panel_vc_restart(void *data)
 		LOGE("[ERROR] Fail to get current commands");
 	}
 
-	if (0 != vc_mgr_start(true, false)) {
+	if (0 != vc_mgr_start(false)) {
 		LOGE( "[ERROR] Fail to start");
 	}
 
