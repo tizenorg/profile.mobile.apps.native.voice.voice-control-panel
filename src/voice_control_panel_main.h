@@ -27,7 +27,7 @@ extern "C" {
 #undef LOG_TAG
 #endif
 #define LOG_TAG	"vcp"
-#define _(S)	gettext(S)
+//#define _(S)	gettext(S)
 
 enum {
 	APP_STATE_INIT = 1,

@@ -39,7 +39,8 @@ static char *__help_text_get(void *data, Evas_Object *obj, const char *part)
 		return NULL;
 	}
 
-	int idx = (int *)data;
+	intptr_t pidx = (intptr_t)data;
+	int idx = (int)pidx;
 
 	if (!strcmp("elm.text.main.left.top", part)) {
 		if (1 == g_ad->current_depth) {
@@ -87,14 +88,16 @@ int vc_panel_view_show_help(void *data)
 	if (1 == ad->current_depth) {
 		for (i = 0; i < NUM_COMMAND_1ST; i++) {
 			if (NULL != g_command_1st[i]) {
-				it = elm_genlist_item_append(ad->help_genlist, g_itc, (void *)i, NULL, ELM_GENLIST_ITEM_NONE, NULL, NULL);
+				intptr_t pi = (intptr_t)i;
+				it = elm_genlist_item_append(ad->help_genlist, g_itc, (void *)pi, NULL, ELM_GENLIST_ITEM_NONE, NULL, NULL);
 				elm_genlist_item_select_mode_set(it, ELM_OBJECT_SELECT_MODE_DISPLAY_ONLY);
 			}
 		}
 	} else if (2 == ad->current_depth) {
 		for (i = 0; i < NUM_COMMAND_2ND; i++) {
 			if (NULL != g_command_2nd[ad->current_path[0]][i]) {
-				it = elm_genlist_item_append(ad->help_genlist, g_itc, (void *)i, NULL, ELM_GENLIST_ITEM_NONE, NULL, NULL);
+				intptr_t pi = (intptr_t)i;
+				it = elm_genlist_item_append(ad->help_genlist, g_itc, (void *)pi, NULL, ELM_GENLIST_ITEM_NONE, NULL, NULL);
 				elm_genlist_item_select_mode_set(it, ELM_OBJECT_SELECT_MODE_DISPLAY_ONLY);
 			}
 		}
