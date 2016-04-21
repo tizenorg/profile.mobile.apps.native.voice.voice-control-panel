@@ -29,6 +29,7 @@
 #include "voice_control_panel_command.h"
 #include "voice_control_panel_view.h"
 
+#if 0 /* NOT USED - if needed, reactivate*/
 static void __vc_panel_action_send_key_event(void *data, Ecore_Thread *thread)
 {
 	LOGD( "==== Send Key Event ====");
@@ -129,6 +130,7 @@ static void __vc_panel_action_send_key_event(void *data, Ecore_Thread *thread)
 	close(fd);
 	return;
 }
+#endif
 
 static void __vc_panel_action_launch_app(const char* app_id)
 {

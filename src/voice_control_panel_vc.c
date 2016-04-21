@@ -37,8 +37,6 @@ static Ecore_Timer *g_restart_timer = NULL;
 
 static bool __current_command_cb(vc_cmd_h vc_command, void* user_data)
 {
-	appdata *ad = (appdata *)user_data;
-
 	int type;
 	if (0 != vc_cmd_get_type(vc_command, &type)) {
 		LOGE("[ERROR] Fail to get type");
