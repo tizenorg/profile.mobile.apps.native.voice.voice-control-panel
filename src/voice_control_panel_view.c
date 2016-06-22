@@ -42,13 +42,13 @@ static char *__help_text_get(void *data, Evas_Object *obj, const char *part)
 	intptr_t pidx = (intptr_t)data;
 	int idx = (int)pidx;
 
-	if (!strcmp("elm.text.main.left.top", part)) {
+	if (!strcmp("elm.text", part)) {
 		if (1 == g_ad->current_depth) {
 			return strdup(_(g_command_1st[idx]));
 		} else if (2 == g_ad->current_depth) {
 			return strdup(_(g_command_2nd[g_ad->current_path[0]][idx]));
 		}
-	} else if (!strcmp("elm.text.sub.left.bottom", part)) {
+	} else if (!strcmp("elm.text.sub", part)) {
 		if (1 == g_ad->current_depth) {
 			return strdup(_(g_hint_1st[idx]));
 		} else if (2 == g_ad->current_depth) {
@@ -66,7 +66,7 @@ static char *__help_text_get_for_app(void *data, Evas_Object *obj, const char *p
 
 	char *cmd = (char *)data;
 
-	if (!strcmp("elm.text.main.left", part)) {
+	if (!strcmp("elm.text", part)) {
 		LOGD("cmd (%s)", cmd);
 		return strdup(cmd);
 	}
@@ -340,7 +340,7 @@ int vc_panel_view_create(void *data)
 		LOGE("Fail to new item class");
 		return -1;
 	}
-	g_itc->item_style = "2line.top";
+	g_itc->item_style = "type1";
 	g_itc->func.text_get = __help_text_get;
 	g_itc->func.content_get = NULL;
 	g_itc->func.state_get = NULL;
@@ -351,7 +351,7 @@ int vc_panel_view_create(void *data)
 		LOGE("Fail to new item class");
 		return -1;
 	}
-	g_itc_for_app->item_style = "1line";
+	g_itc_for_app->item_style = "type1";
 	g_itc_for_app->func.text_get = __help_text_get_for_app;
 	g_itc_for_app->func.content_get = NULL;
 	g_itc_for_app->func.state_get = NULL;
